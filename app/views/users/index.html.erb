@@ -1,0 +1,19 @@
+<div class="container-xxl">
+ <h1 class="text-center text-success">List Users</h1>
+ <button type="button" class="btn btn-warning">
+  <%= link_to "Add new user", {:action => 'new' }%>
+ </button>
+ <% @users.each do |user| %>
+  <div class="card mt-3" >
+   <div class="card-body">
+    Name : <%= user.name %>
+    <button type="button" class="btn btn-danger">
+     <%= link_to 'delete', {:action => "destroy",:id => user.id},method: :delete %>
+    </button>
+     <button type="button" class="btn btn-info">
+      <%= link_to 'edit', {:action => "edit",:id => user.id} %>
+    </button>
+   </div>
+  </div>
+<% end %>
+</div>

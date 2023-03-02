@@ -7,6 +7,8 @@ ruby '2.7.6'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
+# encode password
+gem "bcrypt"
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
