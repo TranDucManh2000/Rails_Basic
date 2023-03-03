@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_02_044114) do
+ActiveRecord::Schema.define(version: 2023_03_03_081244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,9 +20,21 @@ ActiveRecord::Schema.define(version: 2023_03_02_044114) do
     t.text "description"
   end
 
+  create_table "students", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.integer "age"
+    t.string "gender"
+    t.string "class_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_students_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
   end
 
+  add_foreign_key "students", "users"
 end
