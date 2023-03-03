@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    skip_before_action :require_login, only: [:new, :create]
+
     def index
       @users = User.all
     end
@@ -7,12 +9,18 @@ class UsersController < ApplicationController
     def new
         @user = User.new
     end
+    #show cua session
+    def show
+      @user = User.find_by id: session[:user_id]
+      #check bug
+      # binding.pry
+    end
 
     def create
         @user = User.new user_params
         if @user.save
           flash[:success] = "Register success"
-          redirect_to :action => 'index'
+          redirect_to users_path
         else
           flash[:success] = "Register failed"
           render :new

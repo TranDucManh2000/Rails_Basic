@@ -4,4 +4,9 @@ Rails.application.routes.draw do
   get 'book/list' , to:"book#list"
   get 'book/show/:id' , to:"book#show"
   get 'book/new' , to:"book#new"
+
+  get 'login' , to:"session#new"
+  post 'login' , to:"session#create"
+  delete 'logout', to:"session#destroy"
+  get 'show' , to:"users#show",as: :show
 end
