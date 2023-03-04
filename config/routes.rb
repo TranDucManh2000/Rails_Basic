@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   post 'login' , to:"session#create"
   delete 'logout', to:"session#destroy"
   get 'show' , to:"users#show",as: :show
+
+  get 'students/show/:id' , to:"students#show"
 end
