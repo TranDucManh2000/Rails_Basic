@@ -34,11 +34,13 @@ class StudentsController < ApplicationController
 
     def create
         @student =  current_user.students
-        if @student.create(student_params)
-            redirect_to students_path
-         else
-            render :new
-         end
+        params = { student: { name: 'Jack',age:1,gender:'a',class_name:'b', parent_attributes: { name: 'smilingw',address: 'smiling',phone_number: 12 } } }
+        @student.create(params[:student])
+        # if @student.create(student_params)
+        #     redirect_to students_path
+        #  else
+        #     render :new
+        #  end
     end
 
     def update

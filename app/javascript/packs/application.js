@@ -3,21 +3,20 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
+import Rails from "@rails/ujs";
+import Turbolinks from "turbolinks";
+import * as ActiveStorage from "@rails/activestorage";
+import "channels";
 
 // css and bootstrap
-import 'css/site'
-import 'jquery'
-import('../src/plugins') // note the function usage!
+import "css/site";
+import "jquery";
+import("../src/plugins"); // note the function usage!
 
-// js 
-import hello from '../src/hello'
-hello('manh')
+// js
+import hello from "../src/hello";
+hello("manh");
 
-
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+Rails.start();
+Turbolinks.start();
+ActiveStorage.start();
