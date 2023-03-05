@@ -13,6 +13,8 @@ import "css/site";
 import "jquery";
 import("../src/plugins"); // note the function usage!
 
+require("@nathanvda/cocoon");
+
 // js
 import hello from "../src/hello";
 hello("manh");

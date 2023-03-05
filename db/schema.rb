@@ -20,16 +20,6 @@ ActiveRecord::Schema.define(version: 2023_03_04_162637) do
     t.text "description"
   end
 
-  create_table "parents", force: :cascade do |t|
-    t.bigint "student_id", null: false
-    t.string "name"
-    t.integer "phone_number"
-    t.string "address"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["student_id"], name: "index_parents_on_student_id"
-  end
-
   create_table "students", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
@@ -46,6 +36,5 @@ ActiveRecord::Schema.define(version: 2023_03_04_162637) do
     t.string "password_digest"
   end
 
-  add_foreign_key "parents", "students"
   add_foreign_key "students", "users"
 end

@@ -1,0 +1,25 @@
+<%= form_for @student do |f| %>
+
+  <h1>In : _form.html</h1>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+
+    <h1>parent ? :</h1>
+
+    <div id="parent">
+      <%= f.fields_for :parents do |st| %>
+        <%= render 'parent_fields', f: st %>
+      <% end %>
+
+      <div class="links">
+        <%= link_to_add_association 'add address', f, :parent %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.submit %>
+<% end %>
