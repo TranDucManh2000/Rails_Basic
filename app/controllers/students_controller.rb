@@ -34,8 +34,9 @@ class StudentsController < ApplicationController
 
     def create
         @student =  current_user.students
-        params = { student: { name: 'Jack',age:1,gender:'a',class_name:'b', parent_attributes: { name: 'smilingw',address: 'smiling',phone_number: 12 } } }
+        params = { student: { name: 'Jack',age:1,gender:'a',class_name:'b', parent_attributes: [{ name: 'smilingw',address: 'smiling',phone_number: 12 }] } }
         @student.create(params[:student])
+        redirect_to students_path
         # if @student.create(student_params)
         #     redirect_to students_path
         #  else
