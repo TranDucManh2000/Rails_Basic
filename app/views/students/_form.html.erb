@@ -1,6 +1,19 @@
 <%= form_for @student do |f| %>
 
   <div class="form-group">
+
+  <h1>You file</h1>
+  <% if @student.avatar.attached? %>
+   <%= image_tag @student.avatar, width: 200 %>
+   <% else %>
+   <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR279ZG6OVawyMz5ZdZOvlKxGlvk27BNb_REjxpEgEv1A&s", width: 200 %>
+  <% end %>
+
+   <div class="field">
+    <%= f.label "Avatar" %><br />
+    <%= f.file_field :avatar %>
+  </div>
+     
       <%= f.label :name, "Name", class: "col-md-2 control-label" %>
         <div class="col-md-6">
           <%= f.text_field :name, class: "form-control", placeholder: "Enter user name" %>

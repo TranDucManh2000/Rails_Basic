@@ -14,18 +14,7 @@ class StudentsController < ApplicationController
     end
 
     def show
-        # show students in id users
-
-        # show one in users
-        # @student ||= current_user.students.find(params[:id])
-
-        # show all students
-        # @students ||= current_user.students.all
-
-        # show student users id
-        user = User.find_by id: params[:id]
-        @students ||= user.students.all
-        render json: @students
+        @student ||= current_user.students.find(params[:id])
     end
 
     def edit
@@ -53,11 +42,11 @@ class StudentsController < ApplicationController
     private
 
     def student_params
-      params.require(:student).permit :name, :age, :gender, :class_name, parents_attributes: [:name, :address, :phone_number]
+      params.require(:student).permit :avatar,:name, :age, :gender, :class_name, parents_attributes: [:name, :address, :phone_number]
     end
 
     def student_params_destroy
-        params.require(:student).permit :name, :age, :gender, :class_name, parents_attributes: [:id,:name, :address, :phone_number,:_destroy]
+        params.require(:student).permit :avatar,:name, :age, :gender, :class_name, parents_attributes: [:id,:name, :address, :phone_number,:_destroy]
     end
     
 end

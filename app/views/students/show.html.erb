@@ -1,1 +1,11 @@
-<h1>show</h1>
+<h1>show student</h1>
+<p>name :<%= @student.name %></p>
+<p>age:<%= @student.age %></p>
+<p>gender:<%= @student.gender %></p>
+<p>class_name:<%= @student.class_name %></p>
+<p>class_name:<%= @student.avatar %></p>
+ <% if @student.avatar.attached? %>
+   <%= image_tag @student.avatar, width: 200 %>
+   <% else %>
+   <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR279ZG6OVawyMz5ZdZOvlKxGlvk27BNb_REjxpEgEv1A&s", width: 200 %>
+  <% end %>
