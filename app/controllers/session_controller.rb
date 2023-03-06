@@ -10,7 +10,7 @@ class SessionController < ApplicationController
     # binding.pry
     if user && user.authenticate(params[:session][:password])
       log_in user
-      redirect_to show_path
+      redirect_to students_path
     else
       flash[:danger] = "Invalid email/password combination"
       render :new

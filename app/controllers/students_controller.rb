@@ -29,20 +29,21 @@ class StudentsController < ApplicationController
     end
 
     def edit
-        @edit ||= current_user.students.find(params[:id])
+        @student ||= current_user.students.find(params[:id])
     end
 
     def create
-        @student =  current_user.students
-        if @student.create(student_params)
+        @student =  current_user.students.build student_params
+        if @student.save
         redirect_to students_path
-         else
-            render :new
-         end
+        else
+         render :new
+        end
     end
 
     def update
-        if current_user.students.find(params[:id]).update(student_params)
+        @student = current_user.students.find(params[:id])
+        if @student.update student_params_destroy
            redirect_to students_path
         else
            render :action => 'edit'
@@ -53,6 +54,10 @@ class StudentsController < ApplicationController
 
     def student_params
       params.require(:student).permit :name, :age, :gender, :class_name, parents_attributes: [:name, :address, :phone_number]
+    end
+
+    def student_params_destroy
+        params.require(:student).permit :name, :age, :gender, :class_name, parents_attributes: [:id,:name, :address, :phone_number,:_destroy]
     end
     
 end

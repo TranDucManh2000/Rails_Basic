@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users
   resources :students
+  resources :parents
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'book/list' , to:"book#list"
   get 'book/show/:id' , to:"book#show"
