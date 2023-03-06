@@ -17,6 +17,10 @@ import("../src/plugins"); // note the function usage!
 import hello from "../src/hello";
 hello("manh");
 
+import("@nathanvda/cocoon")
+
+var x = $('#student_parents_attributes_0_name').length;
+console.log('test', x);
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
