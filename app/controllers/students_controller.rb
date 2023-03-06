@@ -34,14 +34,11 @@ class StudentsController < ApplicationController
 
     def create
         @student =  current_user.students
-        params = { student: { name: 'Jack',age:1,gender:'a',class_name:'b', parents_attributes: [{ name: 'smilingw',address: 'smiling',phone_number: 12 }] } }
-        @student.create(params[:student])
+        if @student.create(student_params)
         redirect_to students_path
-        # if @student.create(student_params)
-        #     redirect_to students_path
-        #  else
-        #     render :new
-        #  end
+         else
+            render :new
+         end
     end
 
     def update
@@ -55,7 +52,7 @@ class StudentsController < ApplicationController
     private
 
     def student_params
-      params.require(:student).permit :name, :age, :gender, :class_name
+      params.require(:student).permit :name, :age, :gender, :class_name, parents_attributes: [:name, :address, :phone_number]
     end
     
 end

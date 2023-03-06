@@ -5,5 +5,12 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
 
-  <%= link_to_remove_association "remove parent", f %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
+
+
+  <%= link_to_remove_association "remove parent", f ,class: "btn btn-danger" %>
 </div>
