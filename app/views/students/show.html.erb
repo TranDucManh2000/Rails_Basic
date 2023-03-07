@@ -3,9 +3,17 @@
 <p>age:<%= @student.age %></p>
 <p>gender:<%= @student.gender %></p>
 <p>class_name:<%= @student.class_name %></p>
-<p>class_name:<%= @student.avatar %></p>
- <% if @student.avatar.attached? %>
-   <%= image_tag @student.avatar, width: 200 %>
-   <% else %>
-   <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR279ZG6OVawyMz5ZdZOvlKxGlvk27BNb_REjxpEgEv1A&s", width: 200 %>
-  <% end %>
+
+<% if @student.avatar.attached? %>
+<li>
+     <% if @student.avatar.representable? %>
+        <%= image_tag @student.avatar %>
+     <% else %>
+        <%= link_to rails_blob_path(@student.avatar, disposition: "attachment") do %>
+          Dow load file
+        <% end %>
+    <% end %>
+  </li>
+<% else %>
+   <h1>No file</h1>
+<% end %>

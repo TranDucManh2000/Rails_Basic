@@ -3,10 +3,19 @@
   <div class="form-group">
 
   <h1>You file</h1>
+
   <% if @student.avatar.attached? %>
-   <%= image_tag @student.avatar, width: 200 %>
-   <% else %>
-   <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR279ZG6OVawyMz5ZdZOvlKxGlvk27BNb_REjxpEgEv1A&s", width: 200 %>
+    <li>
+      <% if @student.avatar.representable? %>
+        <%= image_tag @student.avatar %>
+      <% else %>
+        <%= link_to rails_blob_path(@student.avatar, disposition: "attachment") do %>
+          Dow load file
+        <% end %>
+    <% end %>
+    </li>
+  <% else %>
+   <h1>No file</h1>
   <% end %>
 
    <div class="field">
