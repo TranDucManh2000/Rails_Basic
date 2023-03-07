@@ -12,6 +12,7 @@ import "channels";
 import "css/site";
 import "jquery";
 import("../src/plugins"); // note the function usage!
+import "@bootstrap-icons.css";
 
 require("@nathanvda/cocoon");
 

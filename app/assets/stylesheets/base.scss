@@ -1,0 +1,40 @@
+.cm_menu_container {
+  min-width: 300px;
+  max-width: 100vh;
+  img {
+    max-width: 200px;
+  }
+  .item {
+    height: 50px;
+    align-items: center;
+    display: flex;
+  }
+}
+
+.cm_item_container {
+  padding: 10px;
+  height: 100vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://storage.googleapis.com/enterknow/content-data/fields-nguyen/2022/12/24/Can-Humans-Hear-Sound-in-Space.jpg");
+}
+
+.cm_form_container {
+  margin-top: 20px;
+  background-color: #ffffff93;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.cm_flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cm_custom_btn {
+  min-width: 150px;
+}
