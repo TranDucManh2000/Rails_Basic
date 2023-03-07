@@ -1,13 +1,31 @@
+.cm_container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://storage.googleapis.com/enterknow/content-data/fields-nguyen/2022/12/24/Can-Humans-Hear-Sound-in-Space.jpg");
+}
+
 .cm_menu_container {
-  min-width: 300px;
-  max-width: 100vh;
-  img {
-    max-width: 200px;
-  }
-  .item {
-    height: 50px;
-    align-items: center;
-    display: flex;
+  min-width: 320px;
+  max-height: 100vh;
+  .menu_body {
+    // background-color: #0c162d;
+    background-color: #0c162de0;
+    color: #627597;
+    border-radius: 10px;
+    height: 100%;
+    border: 1px solid #202637;
+    padding: 10px;
+    font-weight: bold;
+    .item {
+      height: 50px;
+      align-items: center;
+      display: flex;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    img {
+      max-width: 200px;
+    }
   }
 }
 
@@ -19,7 +37,6 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-image: url("https://storage.googleapis.com/enterknow/content-data/fields-nguyen/2022/12/24/Can-Humans-Hear-Sound-in-Space.jpg");
 }
 
 .cm_form_container {
@@ -37,4 +54,13 @@
 
 .cm_custom_btn {
   min-width: 150px;
+}
+
+.cm_clolor_bluetext {
+  color: #00cfc8;
+}
+
+.cm_item {
+  color: #ffff;
+  margin: 10px;
 }
